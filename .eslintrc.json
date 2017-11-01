@@ -1,0 +1,31 @@
+{
+  "extends": "airbnb-base",
+  "globals": {
+    "ENV": true
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "amd": true
+  },
+  "rules":{
+    "no-console": [
+      "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+    ],
+    "comma-dangle":[
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "linebreak-style": ["error", "windows"]
+  }
+}

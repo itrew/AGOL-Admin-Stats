@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AGOL Admin Stats</title>
+  <link rel="stylesheet" type="text/css" href="kube.css">
+  <script src="build/index.js"></script>
+</head>
+<style>
+  body{
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+  }
+</style>
+<body>
+  <h2 class="text-center">AGOL Admin Stats</h2>
+  <form class="form">
+    <div class="form-item">
+      <label>Portal URL <span class="req">*</span></label>
+      <input id="portalUrl" id="name" type="text" class="small" value="https://www.arcgis.com">
+    </div>
+    <div class="form-item">
+      <label>Access Token <span class="req">*</span></label>
+      <input id="token" name="token"type="text" class="small" placeholder="Token" value="">
+    </div>
+    <div class="form-item">
+        <button id="formSubmitButton" class="button secondary">Button</button>
+    </div>
+  </form>
+  <div>
+    Code
+    <pre>
+      <code>
+        var lib = new AGOLAdminStats(portalUrl.value, token.value)
+        lib.getUserGroupData()
+          .then(results => {
+            console.log(results);
+          })
+          .catch(err => console.error(err));
+      </code>
+    </pre>
+  </div>
+  <script>
+    var portalUrl = document.getElementById("portalUrl");
+    var token = document.getElementById("token");
+    var button = document.getElementById("formSubmitButton");
+    var output = document.getElementById("output");
+    button.addEventListener("click", function(event){
+      event.preventDefault();
+      var lib = new AGOLAdminStats(portalUrl.value, token.value)
+      lib.getUserGroupData()
+        .then(function(results) {
+          console.log(results);
+        })
+        .catch(function(err) { console.error(err); });
+    });
+  </script>
+</body>
+</html>
