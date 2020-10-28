@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "test": "tape test/**/*.js | tap-spec",
-    "build": "set NODE_ENV=production&&rollup -c",
-    "dev": "set NODE_ENV=development&&rollup -c -w"
+    "build": "NODE_ENV=production npx rollup -c",
+    "dev": "NODE_ENV=development npx rollup -c -w"
   },
   "license": "ISC",
   "devDependencies": {
