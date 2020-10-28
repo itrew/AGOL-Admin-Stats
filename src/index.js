@@ -139,7 +139,7 @@ AGOLAdminStats.prototype.getAllGroups =
               const pagePromises = [];
               while (startIndex <= (json.total - pageSize)) {
                 startIndex += pageSize;
-                pagePromises.push(getGroupPage(orgId, startIndex));
+                pagePromises.push(getGroupPage(orgId, startIndex, getUsers));
               }
               Promise.all(pagePromises)
                 .then((groupPageArray) => {
